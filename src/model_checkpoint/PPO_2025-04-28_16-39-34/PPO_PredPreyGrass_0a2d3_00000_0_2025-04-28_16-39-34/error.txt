@@ -1,0 +1,68 @@
+Failure # 1 (occurred at 2025-04-28_16-39-48)
+The actor died because of an error raised in its creation task, [36mray::PPO.__init__()[39m (pid=28312, ip=127.0.0.1, actor_id=46c942917bc11ebe29909f3e01000000, repr=PPO(env=PredPreyGrass; env-runners=1; learners=1; multi-agent=True))
+  File "python\\ray\\_raylet.pyx", line 1895, in ray._raylet.execute_task
+  File "python\\ray\\_raylet.pyx", line 1835, in ray._raylet.execute_task.function_executor
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\_private\function_manager.py", line 689, in actor_method_executor
+    return method(__ray_actor, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\util\tracing\tracing_helper.py", line 463, in _resume_span
+    return method(self, *_args, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\rllib\algorithms\algorithm.py", line 528, in __init__
+    super().__init__(
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\tune\trainable\trainable.py", line 157, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\util\tracing\tracing_helper.py", line 463, in _resume_span
+    return method(self, *_args, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\rllib\algorithms\algorithm.py", line 748, in setup
+    self.learner_group = self.config.build_learner_group(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\rllib\algorithms\algorithm_config.py", line 1249, in build_learner_group
+    learner_group = LearnerGroup(config=self.copy(), module_spec=rl_module_spec)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\rllib\core\learner\learner_group.py", line 152, in __init__
+    backend_executor.start(
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\train\_internal\backend_executor.py", line 214, in start
+    self._backend.on_start(self.worker_group, self._backend_config)
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\train\torch\config.py", line 200, in on_start
+    ray.get(setup_futures)
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\_private\auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\_private\client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\_private\worker.py", line 2782, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\_private\worker.py", line 929, in get_objects
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(RuntimeError): [36mray::_RayTrainWorker__execute._setup_torch_process_group()[39m (pid=14904, ip=127.0.0.1, actor_id=aee72237e9935fc0fdcd46bd01000000, repr=<ray.train._internal.worker_group._WrappedExecutable object at 0x000001530CC3BA10>)
+  File "python\\ray\\_raylet.pyx", line 1895, in ray._raylet.execute_task
+  File "python\\ray\\_raylet.pyx", line 1835, in ray._raylet.execute_task.function_executor
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\_private\function_manager.py", line 689, in actor_method_executor
+    return method(__ray_actor, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\util\tracing\tracing_helper.py", line 463, in _resume_span
+    return method(self, *_args, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\train\_internal\worker_group.py", line 33, in __execute
+    raise skipped from exception_cause(skipped)
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\train\_internal\worker_group.py", line 30, in __execute
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\ray\train\torch\config.py", line 115, in _setup_torch_process_group
+    dist.init_process_group(
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\torch\distributed\c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\torch\distributed\c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\torch\distributed\distributed_c10d.py", line 1717, in init_process_group
+    default_pg, _ = _new_process_group_helper(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\Study\UCSD HW\Spring 2025\CSE 190\project\deeprl\Lib\site-packages\torch\distributed\distributed_c10d.py", line 1948, in _new_process_group_helper
+    raise RuntimeError("Distributed package doesn't have NCCL built in")
+RuntimeError: Distributed package doesn't have NCCL built in
