@@ -91,7 +91,7 @@ def build_module_spec(obs_space, act_space):
 if __name__ == "__main__":
     ray.init(log_to_driver=True, ignore_reinit_error=True)
     register_env("PredPreyGrass", env_creator)
-    ray_results_dir = r"G:\Study\UCSD HW\Spring 2025\CSE 190\project\src\model_checkpoint"
+    ray_results_dir = "/work/project_test/src/model_checkpoint/"
     ray_results_path = Path(ray_results_dir).expanduser()
     existing_experiment_dir = "PPO_2025-04-23_21-51-36"
     experiment_path = ray_results_path / existing_experiment_dir
