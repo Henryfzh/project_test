@@ -94,10 +94,11 @@ if __name__ == "__main__":
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # Construct the relative path to model_checkpoint
-    ray_results_dir = os.path.join(script_dir, "model_checkpoint")
-    ray_results_path = Path(ray_results_dir)
+    #ray_results_dir = os.path.join(script_dir, "model_checkpoint")
+    ray_results_dir = Path("/content/drive/MyDrive/model/model_checkpoint/")
+    ray_results_path = Path("/content/drive/MyDrive/model/model_checkpoint/")
     
-    existing_experiment_dir = "PPO_2025-04-23_21-51-36"
+    existing_experiment_dir = "PPO_2025-05-02_15-11-06"
     experiment_path = ray_results_path / existing_experiment_dir
     if (experiment_path / "tuner.pkl").exists():
         restored_tuner = tune.Tuner.restore(
