@@ -91,8 +91,12 @@ def build_module_spec(obs_space, act_space):
 if __name__ == "__main__":
     ray.init(log_to_driver=True, ignore_reinit_error=True)
     register_env("PredPreyGrass", env_creator)
-    ray_results_dir = "/work/project_test/src/model_checkpoint/"
-    ray_results_path = Path(ray_results_dir).expanduser()
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Construct the relative path to model_checkpoint
+    ray_results_dir = os.path.join(script_dir, "model_checkpoint")
+    ray_results_path = Path(ray_results_dir)
+    
     existing_experiment_dir = "PPO_2025-04-23_21-51-36"
     experiment_path = ray_results_path / existing_experiment_dir
     if (experiment_path / "tuner.pkl").exists():

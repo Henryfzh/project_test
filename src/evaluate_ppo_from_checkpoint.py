@@ -58,11 +58,11 @@ def policy_mapping_fn(agent_id, *args, **kwargs):
 
 
 # === Set checkpoint paths ===
-ray_results_dir = "/home/henryfzh/Downloads/Dropbox/02_marl_results/predpreygrass_results/ray_results/4_gpu/pred_obs_range/grass_50"
+ray_results_dir = r"D:\Download\PPO_2025-04-29_00-05-48-20250429T001746Z-001"
 # checkpoint_root = '/v5_move_energy/pred_obs_range/Pred_11_Prey_9/PPO_PredPreyGrass_109fe_00000_0_2025-04-19_10-41-19/'
 # checkpoint_root = '/v5_move_energy/reward_1.0/obs_range_Pred_11_Prey_9/PPO_PredPreyGrass_109fe_00000_0_2025-04-19_10-41-19/'
 checkpoint_root = (
-    "/PPO_2025-04-28_18-35-39/PPO_PredPreyGrass_951ae_00000_0_2025-04-28_18-35-39/"
+    r"\PPO_2025-04-29_00-05-48\PPO_PredPreyGrass_b48b9_00000_0_2025-04-29_00-05-48\\"
 )
 checkpoint_dir = "checkpoint_000000"
 checkpoint_path = os.path.abspath(ray_results_dir + checkpoint_root + checkpoint_dir)
